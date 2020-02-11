@@ -1,0 +1,62 @@
+{
+  "name": "kao-feathers-template",
+  "description": "kao REST APIs skeleton",
+  "version": "0.0.0",
+  "homepage": "",
+  "main": "src",
+  "keywords": [
+    "feathers"
+  ],
+  "author": {
+    "name": "adhityasan",
+    "email": "adhityad3v@gmail.com"
+  },
+  "contributors": [],
+  "bugs": {},
+  "directories": {
+    "lib": "src",
+    "test": "test/",
+    "config": "config/"
+  },
+  "engines": {
+    "node": "^12.0.0",
+    "yarn": ">= 0.18.0"
+  },
+  "scripts": {
+    "test": "yarn run eslint && yarn run jest",
+    "eslint": "eslint src/. test/. --config .eslintrc.json",
+    "dev": "nodemon src/",
+    "start": "node src/",
+    "jest": "jest  --forceExit"
+  },
+  "dependencies": {
+    "@feathersjs/authentication": "^4.4.1",
+    "@feathersjs/authentication-local": "^4.4.1",
+    "@feathersjs/authentication-oauth": "^4.4.1",
+    "@feathersjs/configuration": "^4.4.1",
+    "@feathersjs/errors": "^4.4.1",
+    "@feathersjs/express": "^4.4.1",
+    "@feathersjs/feathers": "^4.4.1",
+    "@feathersjs/socketio": "^4.4.1",
+    "@feathersjs/transport-commons": "^4.5.1",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "feathers-authentication-hooks": "^1.0.1",
+    "feathers-hooks-common": "^5.0.2",
+    "feathers-mongoose": "^8.1.1",
+    "helmet": "^3.21.2",
+    "mongodb-core": "^3.2.7",
+    "mongoose": "^5.7.13",
+    "passport-google-oauth20": "^2.0.0",
+    "serve-favicon": "^2.5.0",
+    "uuid": "^3.4.0",
+    "winston": "^3.0.0"
+  },
+  "devDependencies": {
+    "axios": "^0.19.2",
+    "eslint": "^6.7.2",
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.1"
+  }
+}

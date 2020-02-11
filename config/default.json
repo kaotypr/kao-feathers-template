@@ -1,0 +1,71 @@
+{
+  "host": "KAO_TEMPLATE_HOST",
+  "port": "KAO_TEMPLATE_PORT",
+  "public": "../public/",
+  "fe_domain": "http://kaotemplate.net",
+  "be_domain": "http://kaotemplate.net/api",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "entity": "user",
+    "service": "users",
+    "secret": "KAO_TEMPLATE_AUTH_SECRET",
+    "authStrategies": [
+      "jwt",
+      "local",
+      "local-phone"
+    ],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://kaotemplate.net/api",
+      "issuer": "kaotemplate",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "local-phone": {
+      "usernameField": "phone",
+      "passwordField": "password"
+    },
+    "oauth": {
+      "redirect": "/",
+      "auth0": {
+        "key": "OAUTH_KEY",
+        "secret": "OAUTH_SECRET",
+        "subdomain": "OAUTH_SUBDOMAIN"
+      },
+      "google": {
+        "key": "GOOGLE_CLIENT_ID",
+        "secret": "GOOGLE_CLIENT_SECRET",
+        "scope": [
+          "email",
+          "profile",
+          "openid"
+        ]
+      }
+    }
+  },
+  "mongodb": {
+    "host": "MONGO_HOST",
+    "port": "MONGO_PORT",
+    "dbname": "MONGO_DB_NAME"
+  },
+  "mailer": {
+    "address": "MAILER_ADDRESS",
+    "password": "MAILER_PASSWORD",
+    "active": "MAILER_STATUS"
+  },
+  "twilio": {
+    "sid": "ACCOUNT_TWILIO_SID",
+    "auth_token": "TWILIO_AUTH_TOKEN",
+    "number": "TWILIO_NUMBER",
+    "active": "TWILIO_STATUS"
+  }
+}
