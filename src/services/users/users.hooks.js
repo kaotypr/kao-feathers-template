@@ -4,8 +4,9 @@ const commonHooks = require('feathers-hooks-common');
 const { setField } = require('feathers-authentication-hooks');
 const { softDelete } = require('feathers-hooks-common');
 
-const useUuid = require('../../hooks/use-uuid');
-const gravatar = require('../../hooks/gravatar');
+const setUuid = require('../../hooks/set-uuid');
+const setProfilePicture = require('../../hooks/set-profile-picture');
+const { setVerifyToken } = require('../../hooks/set-verify-token');
 
 const limitToUser = setField({
   from: 'params.user.uid',
@@ -25,8 +26,9 @@ module.exports = {
     ],
     create: [
       hashPassword('password'),
-      useUuid(),
-      gravatar()
+      setUuid,
+      setProfilePicture,
+      setVerifyToken
     ],
     update: [
       authenticate('jwt'),
@@ -37,6 +39,22 @@ module.exports = {
       authenticate('jwt'),
       limitToUser,
       hashPassword('password'),
+      commonHooks.iff(
+        commonHooks.isProvider('external'),
+        commonHooks.preventChanges(
+          true,
+          [ 'email',
+            'verified',
+            'verifyToken',
+            'verifyExpires',
+            'verifyChanges',
+            'resetToken',
+            'resetShortToken',
+            'resetExpires'
+          ]
+        )
+      ),
+      hashPassword()
     ],
     remove: [
       authenticate('jwt'),
