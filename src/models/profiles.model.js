@@ -1,9 +1,35 @@
+const mongoose = require('mongoose');
+
 const validators = require('../helpers/validators');
 
 module.exports = function (app) {
-  const modelName = 'users';
+  const modelName = 'profiles';
   const mongooseClient = app.get('mongooseClient');
   const schema = new mongooseClient.Schema({
+    userId: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: 'users',
+      required: true
+    },
+    profilePicture: {
+      type: String,
+      validate: {
+        validator: validators.isUrl,
+        message: 'invalid profile picture url'
+      }
+    },
+    uid: {
+      type: String,
+      unique: true,
+      validate: {
+        validator: validators.isUuid,
+        message: 'invalid uuid'
+      }
+    },
+    name: {
+      type: String,
+      trim: true
+    },
     email: {
       type: String,
       unique: true,
@@ -15,44 +41,18 @@ module.exports = function (app) {
         message: 'invalid email'
       }
     },
-    phone: {
+    locale: {
+      type: String
+    },
+    address: {
       type: String,
-      unique: true,
-      sparse: true
+      minlength: 5,
+      trim: true
     },
-    password: {
-      type: String
-    },
-    language: {
+    bio: {
       type: String,
-      default: app.get('language').english
-    },
-    auth0Id: {
-      type: String
-    },
-    googleId: {
-      type: String,
-      unique: true,
-      sparse: true
-    },
-    verified: {
-      type: Boolean,
-      default: false
-    },
-    verifyToken: {
-      type: String
-    },
-    verifyExpires: {
-      type: Date
-    },
-    verifyChanges: {
-      type: Object
-    },
-    resetToken: {
-      type: String
-    },
-    resetExpires: {
-      type: Date
+      minglength: 3,
+      trim: true
     }
   }, {
     timestamps: true

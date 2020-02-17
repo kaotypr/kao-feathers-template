@@ -45,10 +45,12 @@
         "key": "GOOGLE_CLIENT_ID",
         "secret": "GOOGLE_CLIENT_SECRET",
         "scope": [
-          "email",
-          "profile",
-          "openid"
+        "profile openid email"
         ]
+      },
+      "github": {
+        "key": "GITHUB_CLIENT_ID",
+        "secret": "GITHUB_CLIENT_SECRET"
       }
     }
   },
@@ -67,5 +69,9 @@
     "auth_token": "TWILIO_AUTH_TOKEN",
     "number": "TWILIO_NUMBER",
     "active": "TWILIO_STATUS"
+  },
+  "language": {
+    "bahasa": "id-ID",
+    "english": "en-US"
   }
 }

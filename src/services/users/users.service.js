@@ -5,7 +5,7 @@ const hooks = require('./users.hooks');
 
 module.exports = function (app) {
   const options = {
-    id: 'uid',
+    id: '_id',
     Model: createModel(app),
     paginate: app.get('paginate')
   };
