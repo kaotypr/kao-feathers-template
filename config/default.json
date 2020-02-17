@@ -57,7 +57,8 @@
   "mongodb": {
     "host": "MONGO_HOST",
     "port": "MONGO_PORT",
-    "dbname": "MONGO_DB_NAME"
+    "dbname": "MONGO_DB_NAME",
+    "url": "MONGO_URL"
   },
   "mailer": {
     "address": "MAILER_ADDRESS",
