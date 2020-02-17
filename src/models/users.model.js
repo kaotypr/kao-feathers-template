@@ -1,16 +1,19 @@
+const validators = require('../helpers/validators');
+
 module.exports = function (app) {
   const modelName = 'users';
   const mongooseClient = app.get('mongooseClient');
   const schema = new mongooseClient.Schema({
-    uid: {
-      type: String,
-      unique: true
-    },
     email: {
       type: String,
       unique: true,
       lowercase: true,
-      sparse: true
+      trim: true,
+      sparse: true,
+      validate: {
+        validator: validators.isEmail,
+        message: 'invalid email'
+      }
     },
     phone: {
       type: String,
