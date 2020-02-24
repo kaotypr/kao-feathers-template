@@ -25,5 +25,10 @@
       "error",
       "always"
     ]
+  },
+  "globals": {
+    "describe": false,
+    "before": false,
+    "after": false
   }
 }

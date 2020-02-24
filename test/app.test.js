@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const assert = require('assert').strict;
 const axios = require('axios');
 const url = require('url');

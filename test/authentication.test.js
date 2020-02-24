@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-
 const assert = require('assert');
 const app = require('../src/app');
 
