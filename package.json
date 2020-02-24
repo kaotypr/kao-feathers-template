@@ -24,11 +24,17 @@
     "yarn": ">= 0.18.0"
   },
   "scripts": {
-    "test": "yarn run eslint && yarn run jest",
+    "test": "yarn run eslint && yarn run mocha",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
     "dev": "nodemon src/",
     "start": "node src/",
-    "jest": "jest  --forceExit"
+    "mocha": "mocha test/ --recursive --exit"
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ],
+    "ignore": []
   },
   "dependencies": {
     "@feathersjs/authentication": "^4.4.1",
@@ -57,7 +63,7 @@
   "devDependencies": {
     "axios": "^0.19.2",
     "eslint": "^6.7.2",
-    "jest": "^25.1.0",
+    "mocha": "^7.0.1",
     "nodemon": "^2.0.1"
   }
 }
